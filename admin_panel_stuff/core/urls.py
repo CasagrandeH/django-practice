@@ -1,5 +1,5 @@
 """
-URL configuration for django_basicao project.
+URL configuration for core project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -15,9 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('produtos/', include('produtos.urls')),
+    path('admin/', admin.site.urls, name="admin"),
+    path('', views.signIn, name='signin'),
+    path('postsign/', views.postsign, name='postsignin'),
+    path('logout/', views.logout, name='out'),
+    path('signup/', views.signUp, name='signup'),
+    path('postsignup/', views.postsignup, name='postsignup'),
+    path('create/', views.create, name='create'),
+    path('post_create/', views.post_create, name="postcreate"),
 ]

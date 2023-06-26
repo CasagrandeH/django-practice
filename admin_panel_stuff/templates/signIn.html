@@ -1,0 +1,38 @@
+{% if message %}
+<script>
+    alert('{{message}}');
+</script>
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <title>Sign In page</title>
+    <style>
+        .auth {
+            display: block;
+            margin: 10px 0px 10px 0px;
+        }
+        .logout {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/postsign/" method="POST">
+        {% csrf_token %}
+        Email:
+        <input type="email" name="email-signIn" class="auth"></input>
+        Password:
+        <input type="password" name="password-signIn" class="auth"></input>
+        <input type="submit" value="Entrar" name="btnSignIn"></input>
+        <button type="button" onclick="location.href = '{% url 'signup' %}'">SignUp</button>
+    </form>
+</body>
+</html>

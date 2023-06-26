@@ -1,0 +1,42 @@
+{% if message %}
+<script>
+    alert('{{message}}');
+</script>
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <title>Sign In page</title>
+    <style>
+        .logout {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        .report-area {
+            display: block;
+            margin: 10px 0px 10px 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="logout">
+        <button type="button" onclick="location.href = '{% url 'out' %}'">Logout</button>
+    </div>
+    <h2>Create Daily Progress Report</h2>
+    <form action="/post_create/" method="POST">
+        {% csrf_token %}
+        Work Assigned:
+        <input type="text" name="work" class="report-area" required></input>
+        Progress:
+        <textarea rols="5" cols="40" name="progress" class="report-area" required></textarea>
+        <input type="submit" value="Submit" class="report-area"></input>
+    </form>
+</body>
+</html>

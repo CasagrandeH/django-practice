@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <title>Welcome page</title>
+    <style>
+        .logout {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logout">
+        <button type="button" onclick="location.href = '{% url 'out' %}'">Logout</button>
+    </div>
+    <p>welcome {{name}}</p>
+    <button type="button" onclick="location.href = '{% url 'create' %}'">Create Report </button>
+    <button type="button">Check Report</button>
+</body>
+</html>
